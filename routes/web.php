@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('urlShorteners/store', [UrlShortenerController::class, 'store'])->name('urlShorteners.store');
     Route::get('urlShorteners/clickCount/{urlShortener}', [UrlShortenerController::class, 'clickCount'])->name('urlShorteners.clickCount');
+    Route::get('urlPath/{shortPath}', [UrlShortenerController::class, 'redirectShortToLongPath']);
 });
 
 require __DIR__.'/auth.php';

@@ -90,4 +90,11 @@ class UrlShortenerController extends Controller
         $urlShortener->increment('count', 1);
         return redirect()->to($urlShortener->long_url);
     }
+
+    /**
+     * find and redirect 
+     */
+    public function redirectShortToLongPath ($shortPath) {
+        return $this->clickCount(UrlShortener::where('short_url', $shortPath)->first());
+    }
 }

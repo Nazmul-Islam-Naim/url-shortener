@@ -31,7 +31,7 @@
                     <h5>Shortener url list:</h5>
                     <ul>
                         @forelse ($urls as $key => $url)
-                        <li>{{$key+1}}. <u><a href="{{route('urlShorteners.clickCount', $url->id)}}" target="_blank">{{$url->short_url}}</a></u> (Click Count: {{$url->count}})</li>
+                        <li>{{$key+1}}. <u><a href="{{route('urlShorteners.clickCount', $url->id)}}" target="_blank">{{env('APP_URL').'/urlPath/'.$url->short_url}}</a></u> (Click Count: {{$url->count}})</li>
                         @empty
                         <li>No url found...!</li>
                         @endforelse
